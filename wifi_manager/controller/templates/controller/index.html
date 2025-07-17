@@ -1,0 +1,11 @@
+<h2>Available Networks</h2>
+<form method="post" action="/connect/">
+  {% csrf_token %}
+  <select name="ssid">
+    {% for ssid, signal in networks %}
+      <option value="{{ ssid }}">{{ ssid }} ({{ signal }}%)</option>
+    {% endfor %}
+  </select><br>
+  <input type="password" name="password" placeholder="Enter Wi-Fi Password" required><br>
+  <button type="submit">Connect</button>
+</form>
